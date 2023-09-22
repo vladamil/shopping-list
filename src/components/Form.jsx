@@ -1,8 +1,17 @@
+import AddProductForm from './AddProductForm';
+
 function Form() {
    return (
       <>
          <div className="form">
-            <div>FORM</div>
+            <input
+               type="text"
+               name="title"
+               id="title"
+               placeholder="Enter list title"
+            />
+            <div>TOTAL PRICE</div>
+            <AddProductForm />
             <div>LIST</div>
             <div>BUTTONS</div>
          </div>

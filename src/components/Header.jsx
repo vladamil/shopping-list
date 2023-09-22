@@ -1,9 +1,17 @@
+import { useContext } from 'react';
+import ListContext from '../context/ListContext';
+
 function Header() {
+   const { displayForm } = useContext(ListContext);
+
    return (
       <header className="header">
-         <div>logo</div>
+         <div>LOGO</div>
+
          <h1>Shopping List</h1>
-         <button>ADD</button>
+         <div>
+            <button onClick={displayForm}>ADD</button>
+         </div>
       </header>
    );
 }
