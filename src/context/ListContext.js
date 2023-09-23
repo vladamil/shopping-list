@@ -16,8 +16,15 @@ export function ListProvider({ children }) {
    };
 
    const addProductToList = (item, price, isChem) => {
-      setProductsList([...productsList, { id: uuidv4(), item, price, isChem }]);
+      setProductsList([
+         ...productsList,
+         { id: uuidv4(), item, price: Number(price), isChem },
+      ]);
       console.log(productsList);
+   };
+
+   const deleteProductFromList = (id) => {
+      setProductsList(productsList.filter((prod) => prod.id !== id));
    };
 
    return (
@@ -28,6 +35,7 @@ export function ListProvider({ children }) {
             displayForm,
             hideForm,
             addProductToList,
+            deleteProductFromList,
          }}
       >
          {children}
