@@ -6,6 +6,7 @@ const ListContext = createContext();
 export function ListProvider({ children }) {
    const [showForm, setShowForm] = useState(false);
    const [productsList, setProductsList] = useState([]);
+   const [lists, setLists] = useState([]);
 
    const displayForm = () => {
       setShowForm(true);
@@ -27,6 +28,14 @@ export function ListProvider({ children }) {
       setProductsList(productsList.filter((prod) => prod.id !== id));
    };
 
+   const clearProducts = () => {
+      setProductsList([]);
+   };
+
+   const addList = (title, products) => {
+      setLists([...lists, { id: uuidv4(), title, products }]);
+   };
+
    return (
       <ListContext.Provider
          value={{
@@ -36,6 +45,8 @@ export function ListProvider({ children }) {
             hideForm,
             addProductToList,
             deleteProductFromList,
+            clearProducts,
+            addList,
          }}
       >
          {children}
