@@ -15,7 +15,8 @@
 
 .header {
    height: 80px;
-   background-color: #228b22;
+   /* background-color: #228b22; */
+   background-color: #17b169;
    color: white;
    display: flex;
    align-items: center;
@@ -31,7 +32,8 @@ h1 {
 }
 
 .main {
-   background-color: rgb(240, 180, 158);
+   /* background-color: rgb(240, 180, 158); */
+   background-color: #e0d0c1;
    min-height: calc(100vh - 80px);
    padding: 20px 10px;
 }

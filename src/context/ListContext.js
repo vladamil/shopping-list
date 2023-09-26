@@ -1,12 +1,18 @@
 import { v4 as uuidv4 } from 'uuid';
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
 const ListContext = createContext();
 
 export function ListProvider({ children }) {
    const [showForm, setShowForm] = useState(false);
    const [productsList, setProductsList] = useState([]);
-   const [lists, setLists] = useState([]);
+   const [lists, setLists] = useState(
+      JSON.parse(localStorage.getItem('lists')) || []
+   );
+
+   useEffect(() => {
+      localStorage.setItem('lists', JSON.stringify(lists));
+   }, [lists]);
 
    const displayForm = () => {
       setShowForm(true);
@@ -21,7 +27,6 @@ export function ListProvider({ children }) {
          ...productsList,
          { id: uuidv4(), item, price: Number(price), isChem },
       ]);
-      console.log(productsList);
    };
 
    const deleteProductFromList = (id) => {
