@@ -42,7 +42,7 @@ function AddProductForm() {
             />
             <span className={styles.currency}>rsd</span>
          </div>
-         <div className={styles['form-field']}>
+         {/* <div className={styles['form-field']}>
             <input
                type="checkbox"
                name="chem"
@@ -51,7 +51,7 @@ function AddProductForm() {
                onChange={(e) => setIsChem(e.target.checked)}
             />
             <label htmlFor="chem">is Chemistry</label>
-         </div>
+         </div> */}
          <button className={styles.btn} type="submit">
             Add Product
          </button>

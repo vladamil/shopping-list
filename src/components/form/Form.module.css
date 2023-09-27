@@ -13,6 +13,32 @@
    justify-content: center;
 }
 
+.total {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   background-color: transparent;
+   border: 2px solid var(--secondary);
+   border-radius: 10px;
+   padding: 10px;
+   margin: 5px 0;
+}
+
+.amount {
+   font-size: 20px;
+   color: var(--secondary);
+}
+
+.amount span {
+   font-size: 12px;
+}
+
+.small {
+   font-size: 9px;
+   letter-spacing: 1px;
+}
+
 .form-field {
    width: 80%;
    margin: 5px 0;

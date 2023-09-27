@@ -33,7 +33,13 @@ function Form() {
                   }}
                />
             </div>
-            <div>TOTAL PRICE: {total} rsd</div>
+            <div className={styles.total}>
+               <p className={styles.amount}>
+                  {total}
+                  <span>rsd</span>
+               </p>
+               <p className={styles.small}>Total Price</p>
+            </div>
             <AddProductForm />
             <ProductFormList />
             <div>
