@@ -1,11 +1,13 @@
 import { useContext } from 'react';
 import ListContext from '../context/ListContext';
 
+import styles from './Header.module.css';
+
 function Header() {
    const { displayForm } = useContext(ListContext);
 
    return (
-      <header className="header">
+      <header className={styles.header}>
          <div>LOGO</div>
 
          <h1>Shopping List</h1>

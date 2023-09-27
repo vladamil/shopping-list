@@ -46,6 +46,7 @@ export function ListProvider({ children }) {
          value={{
             showForm,
             productsList,
+            lists,
             displayForm,
             hideForm,
             addProductToList,

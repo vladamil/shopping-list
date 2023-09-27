@@ -1,7 +1,9 @@
 import { useContext, useState } from 'react';
-import ListContext from '../context/ListContext';
+import ListContext from '../../context/ListContext';
 import AddProductForm from './AddProductForm';
 import ProductFormList from './ProductFormList';
+
+import styles from './Form.module.css';
 
 function Form() {
    const [title, setTitle] = useState('');
@@ -17,17 +19,20 @@ function Form() {
 
    return (
       <>
-         <div className="form">
-            <input
-               type="text"
-               name="title"
-               id="title"
-               placeholder="Enter list title"
-               value={title}
-               onChange={(e) => {
-                  setTitle(e.target.value);
-               }}
-            />
+         <div className={styles.form}>
+            <div className={styles['form-field']}>
+               <input
+                  autoComplete="off"
+                  type="text"
+                  name="title"
+                  id="title"
+                  placeholder="Enter list title"
+                  value={title}
+                  onChange={(e) => {
+                     setTitle(e.target.value);
+                  }}
+               />
+            </div>
             <div>TOTAL PRICE: {total} rsd</div>
             <AddProductForm />
             <ProductFormList />

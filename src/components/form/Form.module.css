@@ -1,0 +1,31 @@
+.form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.form form {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.form-field {
+   width: 80%;
+   margin: 5px 0;
+}
+
+.form-field input {
+   font-family: inherit;
+   padding: 5px;
+   border: none;
+   border-radius: 5px;
+   width: 100%;
+}
+
+.form-field input:focus {
+   outline: none;
+}

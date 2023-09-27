@@ -1,0 +1,50 @@
+.form-field {
+   width: 80%;
+   margin: 5px 0;
+}
+
+.form-field input {
+   font-family: inherit;
+   padding: 5px;
+   border: none;
+   border-radius: 5px;
+   width: 100%;
+}
+
+.form-field input:focus {
+   outline: none;
+}
+
+.form-field.number {
+   position: relative;
+}
+
+.currency {
+   position: absolute;
+   text-align: center;
+   font-size: 14px;
+   color: white;
+   width: 50px;
+   right: 0;
+   padding: 5px;
+   background-color: #17b169;
+   border-radius: 5px;
+}
+
+.btn {
+   font-family: inherit;
+   font-size: 14px;
+   font-weight: bold;
+   padding: 10px 5px;
+   color: white;
+   border: none;
+   border: 3px solid #222e50;
+   border-radius: 10px;
+   background-color: #222e50;
+   cursor: pointer;
+   transition: all 0.5s;
+}
+
+.btn:active {
+   transform: scale(0.9);
+}

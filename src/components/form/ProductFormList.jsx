@@ -1,5 +1,7 @@
 import { useContext } from 'react';
-import ListContext from '../context/ListContext';
+import ListContext from '../../context/ListContext';
+
+import styles from './ProductFormList.module.css';
 
 function ProductFormList() {
    const { productsList, deleteProductFromList } = useContext(ListContext);
