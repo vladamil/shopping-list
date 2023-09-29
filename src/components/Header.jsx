@@ -8,7 +8,10 @@ function Header() {
 
    return (
       <header className={styles.header}>
-         <div>LOGO</div>
+         <div>
+            {/* <img className={styles.logo} src={logo} alt="logo" /> */}
+            LOGO
+         </div>
 
          <h1>Shopping List</h1>
          <div>

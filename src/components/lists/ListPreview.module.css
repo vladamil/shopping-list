@@ -1,6 +1,26 @@
 .list {
-   background-color: aliceblue;
+   display: flex;
+   background: rgb(23, 177, 105);
+   background: linear-gradient(
+      90deg,
+      rgba(34, 46, 80, 1) -20%,
+      rgba(23, 177, 105, 1) 120%
+   );
    padding: 10px 20px;
    margin-bottom: 25px;
    border-radius: 15px;
+   box-shadow: 4px 4px 5px 1px rgba(0, 0, 0, 0.2);
+   color: var(--tertiary);
+}
+
+.list h3 {
+   font-size: 18px;
+   font-weight: 100;
+   color: var(--tertiary);
+   text-transform: uppercase;
+}
+
+.date {
+   font-size: 10px;
+   margin-bottom: 20px;
 }
