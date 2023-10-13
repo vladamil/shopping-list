@@ -41,6 +41,14 @@ export function ListProvider({ children }) {
       setLists([...lists, { id: uuidv4(), title, products }]);
    };
 
+   const deleteList = (id) => {
+      setLists(
+         lists.filter((list) => {
+            return list.id !== id;
+         })
+      );
+   };
+
    return (
       <ListContext.Provider
          value={{
@@ -53,6 +61,7 @@ export function ListProvider({ children }) {
             deleteProductFromList,
             clearProducts,
             addList,
+            deleteList,
          }}
       >
          {children}
