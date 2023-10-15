@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import ListContext from '../context/ListContext';
+import { FaPlus } from 'react-icons/fa6';
 
 import styles from './Header.module.css';
 
@@ -8,14 +9,15 @@ function Header() {
 
    return (
       <header className={styles.header}>
-         <div>
-            {/* <img className={styles.logo} src={logo} alt="logo" /> */}
+         {/* <div>
+            
             LOGO
-         </div>
+         </div> */}
 
          <h1>Shopping List</h1>
-         <div>
-            <button onClick={displayForm}>ADD</button>
+         <div className={styles.add} onClick={displayForm}>
+            <FaPlus className={styles['add-icon']}></FaPlus>
+            <p>add</p>
          </div>
       </header>
    );
