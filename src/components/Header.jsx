@@ -5,7 +5,7 @@ import { FaPlus } from 'react-icons/fa6';
 import styles from './Header.module.css';
 
 function Header() {
-   const { displayForm } = useContext(ListContext);
+   const { displayForm, showForm } = useContext(ListContext);
 
    return (
       <header className={styles.header}>
@@ -15,10 +15,12 @@ function Header() {
          </div> */}
 
          <h1>Shopping List</h1>
-         <div className={styles.add} onClick={displayForm}>
-            <FaPlus className={styles['add-icon']}></FaPlus>
-            <p>add</p>
-         </div>
+         {!showForm && (
+            <div className={styles.add} onClick={displayForm}>
+               <FaPlus className={styles['add-icon']}></FaPlus>
+               <p>add</p>
+            </div>
+         )}
       </header>
    );
 }
