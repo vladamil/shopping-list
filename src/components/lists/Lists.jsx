@@ -9,7 +9,6 @@ function Lists() {
 
    return (
       <div className={styles['lists-container']}>
-         {/* TODO: Add single list items like links to their pages */}
          {lists.map((list) => (
             <ListPreview key={list.id} list={list} />
          ))}

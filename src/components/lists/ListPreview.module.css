@@ -24,6 +24,11 @@
    text-transform: uppercase;
 }
 
+.link {
+   color: inherit;
+   text-decoration: none;
+}
+
 .date {
    font-size: 10px;
    margin-bottom: 20px;
