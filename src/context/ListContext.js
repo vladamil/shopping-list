@@ -38,7 +38,7 @@ export function ListProvider({ children }) {
    };
 
    const addList = (title, products) => {
-      setLists([...lists, { id: uuidv4(), title, products }]);
+      setLists([...lists, { id: uuidv4(), date: new Date(), title, products }]);
    };
 
    const deleteList = (id) => {

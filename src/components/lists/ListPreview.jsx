@@ -21,7 +21,9 @@ function ListPreview({ list }) {
                <Link to={list.id} className={styles.link}>
                   <h3>{list.title}</h3>
                </Link>
-               <p className={styles.date}>Created: 21-11-2023</p>
+               <p className={styles.date}>
+                  Created: {new Intl.DateTimeFormat('en-GB').format(list.date)}
+               </p>
                <p>total: {total} rsd</p>
             </div>
             <div>
