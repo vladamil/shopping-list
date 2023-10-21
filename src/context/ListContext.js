@@ -14,6 +14,11 @@ export function ListProvider({ children }) {
       localStorage.setItem('lists', JSON.stringify(lists));
    }, [lists]);
 
+   const dateCreator = () => {
+      const date = new Date();
+      return new Intl.DateTimeFormat('en-GB').format(date);
+   };
+
    const displayForm = () => {
       setShowForm(true);
    };
@@ -38,7 +43,15 @@ export function ListProvider({ children }) {
    };
 
    const addList = (title, products) => {
-      setLists([...lists, { id: uuidv4(), date: new Date(), title, products }]);
+      setLists([
+         ...lists,
+         {
+            id: uuidv4(),
+            date: dateCreator(),
+            title,
+            products,
+         },
+      ]);
    };
 
    const deleteList = (id) => {
