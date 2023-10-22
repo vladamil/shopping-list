@@ -6,16 +6,14 @@ import styles from './AddProductForm.module.css';
 function AddProductForm() {
    const [product, setProduct] = useState('');
    const [price, setPrice] = useState('');
-   const [isChem, setIsChem] = useState(false);
 
    const { addProductToList } = useContext(ListContext);
 
    const handleSubmit = (e) => {
       e.preventDefault();
-      addProductToList(product, price, isChem);
+      addProductToList(product, price);
       setProduct('');
       setPrice('');
-      setIsChem(false);
    };
 
    return (
@@ -42,16 +40,7 @@ function AddProductForm() {
             />
             <span className={styles.currency}>rsd</span>
          </div>
-         {/* <div className={styles['form-field']}>
-            <input
-               type="checkbox"
-               name="chem"
-               id="chem"
-               checked={isChem}
-               onChange={(e) => setIsChem(e.target.checked)}
-            />
-            <label htmlFor="chem">is Chemistry</label>
-         </div> */}
+
          <button className={styles.btn} type="submit">
             Add Product
          </button>

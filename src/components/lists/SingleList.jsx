@@ -4,7 +4,7 @@ import ListContext from '../../context/ListContext';
 
 function SingleList() {
    const { listId } = useParams();
-   const { lists } = useContext(ListContext);
+   const { lists, toggleIsCheckedProduct } = useContext(ListContext);
 
    // find single list based on url listId
    const list = lists.find((item) => {
@@ -23,7 +23,17 @@ function SingleList() {
          </div>
          <div>
             {list.products.map((item) => {
-               return <p>{item.item}</p>;
+               return (
+                  <p
+                     key={item.id}
+                     style={{ color: item.isChecked ? 'red' : 'blue' }}
+                     onClick={() => {
+                        toggleIsCheckedProduct(list.id, item.id);
+                     }}
+                  >
+                     {item.item}
+                  </p>
+               );
             })}
          </div>
          <footer>

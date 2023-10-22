@@ -14,6 +14,7 @@ export function ListProvider({ children }) {
       localStorage.setItem('lists', JSON.stringify(lists));
    }, [lists]);
 
+   // helper function to add date to list creation
    const dateCreator = () => {
       const date = new Date();
       return new Intl.DateTimeFormat('en-GB').format(date);
@@ -27,10 +28,10 @@ export function ListProvider({ children }) {
       setShowForm(false);
    };
 
-   const addProductToList = (item, price, isChem) => {
+   const addProductToList = (item, price) => {
       setProductsList([
          ...productsList,
-         { id: uuidv4(), item, price: Number(price), isChem },
+         { id: uuidv4(), item, price: Number(price), isChecked: false },
       ]);
    };
 
@@ -62,6 +63,34 @@ export function ListProvider({ children }) {
       );
    };
 
+   const toggleIsCheckedProduct = (listId, prodId) => {
+      // find list we are in
+      let newList = lists.find((list) => list.id === listId);
+
+      // toggle the checked product from the list
+      const updatedProd = newList.products.map((prod) => {
+         if (prod.id === prodId) {
+            return { ...prod, isChecked: !prod.isChecked };
+         } else {
+            return prod;
+         }
+      });
+
+      // update list we are in
+      newList = { ...newList, products: updatedProd };
+
+      // set updated list to our state
+      setLists(
+         lists.map((list) => {
+            if (list.id === listId) {
+               return newList;
+            } else {
+               return list;
+            }
+         })
+      );
+   };
+
    return (
       <ListContext.Provider
          value={{
@@ -75,6 +104,7 @@ export function ListProvider({ children }) {
             clearProducts,
             addList,
             deleteList,
+            toggleIsCheckedProduct,
          }}
       >
          {children}
