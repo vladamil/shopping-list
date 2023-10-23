@@ -4,6 +4,11 @@
    --primary: #17b169;
    --secondary: #222e50;
    --tertiary: #e0d0c1;
+   --background: linear-gradient(
+      90deg,
+      rgba(34, 46, 80, 1) -20%,
+      rgba(23, 177, 105, 1) 120%
+   );
 }
 
 * {

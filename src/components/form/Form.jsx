@@ -42,8 +42,9 @@ function Form() {
             </div>
             <AddProductForm />
             <ProductFormList />
-            <div>
+            <div className={styles.buttons}>
                <button
+                  className={styles.cancel}
                   onClick={() => {
                      hideForm();
                      clearProducts();
@@ -58,7 +59,7 @@ function Form() {
                      clearProducts();
                   }}
                >
-                  FINISH LIST
+                  FINISH
                </button>
             </div>
          </div>

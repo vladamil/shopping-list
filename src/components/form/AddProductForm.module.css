@@ -16,16 +16,16 @@
 }
 
 .form-field.number {
-   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
 }
 
 .currency {
-   position: absolute;
    text-align: center;
    font-size: 14px;
    color: white;
    width: 50px;
-   right: 0;
    padding: 5px;
    background-color: var(--primary);
    border-radius: 5px;
