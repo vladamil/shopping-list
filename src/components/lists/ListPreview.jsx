@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaTrashAlt } from 'react-icons/fa';
+
 import ListContext from '../../context/ListContext';
 
 import styles from './ListPreview.module.css';
@@ -23,6 +24,7 @@ function ListPreview({ list }) {
                onClick={() => {
                   navigate(`${list.id}`);
                }}
+               style={{ cursor: 'pointer' }}
             >
                <h3>{list.title}</h3>
                <p className={styles.date}>Created: {list.date}</p>
