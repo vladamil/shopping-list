@@ -4,6 +4,9 @@
    color: white;
    padding: 10px 20px;
    border-radius: 10px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
 }
 
 .header h2 {
@@ -14,6 +17,11 @@
 .header small {
    font-size: 10px;
    color: lightgray;
+}
+
+.header .edit-icon {
+   font-size: 22px;
+   cursor: pointer;
 }
 
 .prices {
@@ -67,8 +75,8 @@
    font-size: 14px;
    color: white;
    background-color: var(--secondary);
-   background: var(--background);
-   margin-bottom: 15px;
+   /* background: var(--background); */
+   margin-bottom: 10px;
    border-radius: 20px;
 }
 

@@ -9,6 +9,7 @@ export function ListProvider({ children }) {
    const [lists, setLists] = useState(
       JSON.parse(localStorage.getItem('lists')) || []
    );
+   const [listToEdit, setListToEdit] = useState(null);
 
    useEffect(() => {
       localStorage.setItem('lists', JSON.stringify(lists));
@@ -63,6 +64,10 @@ export function ListProvider({ children }) {
       );
    };
 
+   const selectListToEdit = (id) => {
+      setListToEdit(lists.find((list) => list.id === id));
+   };
+
    const toggleIsCheckedProduct = (listId, prodId) => {
       // find list we are in
       let newList = lists.find((list) => list.id === listId);
@@ -104,6 +109,7 @@ export function ListProvider({ children }) {
             clearProducts,
             addList,
             deleteList,
+            selectListToEdit,
             toggleIsCheckedProduct,
          }}
       >

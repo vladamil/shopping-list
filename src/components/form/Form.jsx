@@ -41,6 +41,7 @@ function Form() {
                <p className={styles.small}>Total Price</p>
             </div>
             <AddProductForm />
+            {/* {message && <p>{message}</p>} */}
             <ProductFormList />
             <div className={styles.buttons}>
                <button

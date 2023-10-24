@@ -1,13 +1,19 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
+import { FaEdit } from 'react-icons/fa';
 import ListContext from '../../context/ListContext';
 
 import styles from './SingleList.module.css';
 
 function SingleList() {
    const { listId } = useParams();
-   const { lists, toggleIsCheckedProduct, deleteList } =
-      useContext(ListContext);
+   const {
+      lists,
+      toggleIsCheckedProduct,
+      deleteList,
+      selectListToEdit,
+      displayForm,
+   } = useContext(ListContext);
    const navigate = useNavigate();
 
    // find single list based on url listId
@@ -30,11 +36,22 @@ function SingleList() {
       }, 0)
       .toFixed(2);
 
+   const handleEdit = () => {
+      selectListToEdit(list.id);
+      navigate(`/`);
+      displayForm();
+   };
+
    return (
       <div>
          <div className={styles.header}>
-            <h2>{list.title}</h2>
-            <small>Created: {list.date}</small>
+            <div>
+               <h2>{list.title}</h2>
+               <small>Created: {list.date}</small>
+            </div>
+            <div>
+               <FaEdit className={styles['edit-icon']} onClick={handleEdit} />
+            </div>
          </div>
 
          <div className={styles.prices}>
