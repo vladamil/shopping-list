@@ -44,14 +44,18 @@ export function ListProvider({ children }) {
       setProductsList([]);
    };
 
-   const addList = (title, products) => {
+   const fillProductsFromList = (list) => {
+      setProductsList(list.products);
+   };
+
+   const addList = (title) => {
       setLists([
          ...lists,
          {
             id: uuidv4(),
             date: dateCreator(),
             title,
-            products,
+            products: productsList,
          },
       ]);
    };
@@ -66,6 +70,26 @@ export function ListProvider({ children }) {
 
    const selectListToEdit = (id) => {
       setListToEdit(lists.find((list) => list.id === id));
+   };
+
+   const clearListToEdit = () => {
+      setListToEdit(null);
+   };
+
+   const editList = (list, title) => {
+      let changedList = lists.find((item) => item.id === list.id);
+
+      changedList = { ...changedList, products: productsList, title };
+
+      setLists(
+         lists.map((item) => {
+            if (item.id === list.id) {
+               return changedList;
+            } else {
+               return item;
+            }
+         })
+      );
    };
 
    const toggleIsCheckedProduct = (listId, prodId) => {
@@ -102,14 +126,18 @@ export function ListProvider({ children }) {
             showForm,
             productsList,
             lists,
+            listToEdit,
             displayForm,
             hideForm,
             addProductToList,
             deleteProductFromList,
             clearProducts,
+            fillProductsFromList,
             addList,
             deleteList,
             selectListToEdit,
+            editList,
+            clearListToEdit,
             toggleIsCheckedProduct,
          }}
       >

@@ -1,11 +1,23 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 import ListContext from '../../context/ListContext';
 
 import styles from './ProductFormList.module.css';
 
 function ProductFormList() {
-   const { productsList, deleteProductFromList } = useContext(ListContext);
+   const {
+      productsList,
+      deleteProductFromList,
+      fillProductsFromList,
+      listToEdit,
+   } = useContext(ListContext);
+
+   useEffect(() => {
+      if (listToEdit) {
+         fillProductsFromList(listToEdit);
+      }
+   }, [listToEdit]);
+
    return (
       <ul className={styles['prod-list']}>
          {productsList.map((prod) => {
