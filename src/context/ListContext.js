@@ -10,6 +10,7 @@ export function ListProvider({ children }) {
       JSON.parse(localStorage.getItem('lists')) || []
    );
    const [listToEdit, setListToEdit] = useState(null);
+   const [validationMsg, setValidationMsg] = useState('');
 
    useEffect(() => {
       localStorage.setItem('lists', JSON.stringify(lists));
@@ -120,6 +121,10 @@ export function ListProvider({ children }) {
       );
    };
 
+   const createValidationMsg = (message) => {
+      setValidationMsg(message);
+   };
+
    return (
       <ListContext.Provider
          value={{
@@ -127,6 +132,7 @@ export function ListProvider({ children }) {
             productsList,
             lists,
             listToEdit,
+            validationMsg,
             displayForm,
             hideForm,
             addProductToList,
@@ -139,6 +145,7 @@ export function ListProvider({ children }) {
             editList,
             clearListToEdit,
             toggleIsCheckedProduct,
+            createValidationMsg,
          }}
       >
          {children}

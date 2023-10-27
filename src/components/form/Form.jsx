@@ -17,6 +17,8 @@ function Form() {
       listToEdit,
       clearListToEdit,
       editList,
+      validationMsg,
+      createValidationMsg,
    } = useContext(ListContext);
 
    const navigate = useNavigate();
@@ -32,6 +34,36 @@ function Form() {
          setTitle(listToEdit.title);
       }
    }, [listToEdit]);
+
+   // RESET STATE function after add, edit or cancel list
+   const reset = () => {
+      hideForm();
+      clearProducts();
+      createValidationMsg('');
+   };
+
+   // HANDLE SUBMIT FORM function with basic validaton
+   const handleSubmit = () => {
+      if (title.trim().length === 0 || title.trim().length > 20) {
+         createValidationMsg('List title must be between 1 and 20 chars long');
+         return;
+      }
+
+      if (productsList.length === 0) {
+         createValidationMsg('List must contain at least one product');
+         return;
+      }
+
+      if (listToEdit) {
+         navigate(`/${listToEdit.id}`);
+         editList(listToEdit, title);
+         clearListToEdit();
+         reset();
+      } else {
+         addList(title);
+         reset();
+      }
+   };
 
    return (
       <>
@@ -57,7 +89,7 @@ function Form() {
                <p className={styles.small}>Total Price</p>
             </div>
             <AddProductForm />
-            {/* {message && <p>{message}</p>} */}
+            {validationMsg && <p>{validationMsg}</p>}
             <ProductFormList />
 
             <div className={styles.buttons}>
@@ -68,8 +100,7 @@ function Form() {
                      onClick={() => {
                         navigate(`/${listToEdit.id}`);
                         clearListToEdit();
-                        hideForm();
-                        clearProducts();
+                        reset();
                      }}
                   >
                      Cancel Edit
@@ -79,8 +110,7 @@ function Form() {
                   <button
                      className={styles.cancel}
                      onClick={() => {
-                        hideForm();
-                        clearProducts();
+                        reset();
                      }}
                   >
                      Back
@@ -89,28 +119,10 @@ function Form() {
 
                {listToEdit ? (
                   // display confirm button for EDIT list
-                  <button
-                     onClick={() => {
-                        navigate(`/${listToEdit.id}`);
-                        editList(listToEdit, title);
-                        hideForm();
-                        clearProducts();
-                        clearListToEdit();
-                     }}
-                  >
-                     Finish Edit
-                  </button>
+                  <button onClick={handleSubmit}>Finish Edit</button>
                ) : (
                   // display confirm button for CREATE list
-                  <button
-                     onClick={() => {
-                        addList(title);
-                        hideForm();
-                        clearProducts();
-                     }}
-                  >
-                     Finish List
-                  </button>
+                  <button onClick={handleSubmit}>Finish List</button>
                )}
             </div>
          </div>
