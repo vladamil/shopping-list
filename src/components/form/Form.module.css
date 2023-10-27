@@ -56,6 +56,12 @@
    outline: none;
 }
 
+.validation {
+   margin-top: 10px;
+   font-size: 14px;
+   color: red;
+}
+
 .buttons {
    max-width: 600px;
    margin: auto;

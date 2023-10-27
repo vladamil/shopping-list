@@ -7,13 +7,25 @@ function AddProductForm() {
    const [product, setProduct] = useState('');
    const [price, setPrice] = useState('');
 
-   const { addProductToList } = useContext(ListContext);
+   const { addProductToList, createValidationMsg } = useContext(ListContext);
 
    const handleSubmit = (e) => {
       e.preventDefault();
+
+      if (product.trim().length === 0 || product.trim().length > 25) {
+         createValidationMsg('Product must be between 1 and 25 chars long');
+         return;
+      }
+
+      if (price <= 0) {
+         createValidationMsg('Price must be a positive number');
+         return;
+      }
+
       addProductToList(product, price);
       setProduct('');
       setPrice('');
+      createValidationMsg('');
    };
 
    return (

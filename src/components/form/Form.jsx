@@ -23,6 +23,7 @@ function Form() {
 
    const navigate = useNavigate();
 
+   // calc total value of products in the list
    const total = productsList
       .reduce((acc, prod) => {
          return acc + prod.price;
@@ -89,7 +90,9 @@ function Form() {
                <p className={styles.small}>Total Price</p>
             </div>
             <AddProductForm />
-            {validationMsg && <p>{validationMsg}</p>}
+            {validationMsg && (
+               <p className={styles.validation}>{validationMsg}</p>
+            )}
             <ProductFormList />
 
             <div className={styles.buttons}>
@@ -107,12 +110,7 @@ function Form() {
                   </button>
                ) : (
                   // display cancel button for CREATE list
-                  <button
-                     className={styles.cancel}
-                     onClick={() => {
-                        reset();
-                     }}
-                  >
+                  <button className={styles.cancel} onClick={() => reset()}>
                      Back
                   </button>
                )}
