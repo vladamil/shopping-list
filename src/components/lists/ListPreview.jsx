@@ -1,12 +1,14 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaTrashAlt } from 'react-icons/fa';
-
+import ConfirmModal from '../utils/ConfirmModal';
 import ListContext from '../../context/ListContext';
 
 import styles from './ListPreview.module.css';
 
 function ListPreview({ list }) {
+   const [showConfirm, setShowConfirm] = useState(false);
+
    // calc total for all prod in the list
    const total = list.products
       .reduce((acc, prod) => {
@@ -34,11 +36,17 @@ function ListPreview({ list }) {
                <FaTrashAlt
                   className={styles.icon}
                   onClick={() => {
-                     deleteList(list.id);
+                     setShowConfirm(true);
                   }}
                />
             </div>
          </div>
+         {showConfirm && (
+            <ConfirmModal
+               onClose={() => setShowConfirm(false)}
+               fn={() => deleteList(list.id)}
+            />
+         )}
       </div>
    );
 }

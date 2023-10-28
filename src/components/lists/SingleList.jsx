@@ -1,7 +1,8 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { FaEdit } from 'react-icons/fa';
 import ListContext from '../../context/ListContext';
+import ConfirmModal from '../utils/ConfirmModal';
 
 import styles from './SingleList.module.css';
 
@@ -14,6 +15,8 @@ function SingleList() {
       selectListToEdit,
       displayForm,
    } = useContext(ListContext);
+
+   const [showConfirm, setShowConfirm] = useState(false);
    const navigate = useNavigate();
 
    // find single list based on url listId
@@ -99,15 +102,18 @@ function SingleList() {
             >
                BACK
             </button>
-            <button
-               onClick={() => {
-                  navigate('/');
-                  deleteList(list.id);
-               }}
-            >
-               DELETE
-            </button>
+            <button onClick={() => setShowConfirm(true)}>DELETE</button>
          </footer>
+
+         {showConfirm && (
+            <ConfirmModal
+               onClose={() => setShowConfirm(false)}
+               fn={() => {
+                  deleteList(list.id);
+                  navigate('/');
+               }}
+            />
+         )}
       </div>
    );
 }
