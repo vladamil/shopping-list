@@ -2,3 +2,35 @@
    width: 80%;
    margin: auto;
 }
+
+.empty {
+   margin: 10% 0;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   color: rgb(94, 94, 94);
+}
+
+.empty h2 {
+   margin-bottom: 10px;
+}
+
+.empty img {
+   max-width: 60%;
+   margin: 10px 0;
+}
+
+.moto {
+   font-style: italic;
+   font-size: 20px;
+}
+
+.link {
+   color: var(--secondary);
+   font-size: 18px;
+   text-decoration: underline;
+   font-weight: 600;
+   cursor: pointer;
+}
