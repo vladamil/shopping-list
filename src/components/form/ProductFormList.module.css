@@ -5,7 +5,7 @@
 }
 
 .prod-item {
-   font-size: 14px;
+   font-size: 16px;
    margin: 8px 0;
    display: flex;
    align-items: flex-start;
@@ -14,7 +14,7 @@
 }
 
 .delete {
-   font-size: 14px;
+   font-size: 16px;
    margin-left: 10px;
    border: none;
    color: var(--secondary);

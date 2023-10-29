@@ -44,7 +44,6 @@ function AddProductForm() {
          <div className={`${styles['form-field']} ${styles.number}`}>
             <input
                type="number"
-               step={0.01}
                name="price"
                id="price"
                placeholder="Enter total price"

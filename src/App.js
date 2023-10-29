@@ -14,7 +14,7 @@ function App() {
    return (
       <BrowserRouter>
          <div className="app">
-            <Header />
+            {!showForm && <Header />}
             <div className="main">
                <Routes>
                   <Route path="/" element={content} />

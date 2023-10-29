@@ -5,6 +5,7 @@
 
 .form-field input {
    font-family: inherit;
+   font-size: 14px;
    padding: 5px;
    border: none;
    border-radius: 5px;

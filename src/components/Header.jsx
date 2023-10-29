@@ -17,12 +17,10 @@ function Header() {
    return (
       <header className={styles.header}>
          <h1>Shopping List</h1>
-         {!showForm && (
-            <div className={styles.add} onClick={handleClick}>
-               <FaPlus className={styles['add-icon']}></FaPlus>
-               <p>add</p>
-            </div>
-         )}
+         <div className={styles.add} onClick={handleClick}>
+            <FaPlus className={styles['add-icon']}></FaPlus>
+            <p>add</p>
+         </div>
       </header>
    );
 }
